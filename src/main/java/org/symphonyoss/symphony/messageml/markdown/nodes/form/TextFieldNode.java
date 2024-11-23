@@ -7,12 +7,12 @@ package org.symphonyoss.symphony.messageml.markdown.nodes.form;
  * @since 10/21/2019
  */
 public class TextFieldNode extends FormElementNode implements PlaceholderLabelTooltipNode {
-  private final static String MARKDOWN = "Text Field";
+  private static final String MARKDOWN = "Text Field";
 
-  private String placeholder;
-  private String initialValue;
-  private String label;
-  private String tooltip;
+  private final String placeholder;
+  private final String initialValue;
+  private final String label;
+  private final String tooltip;
 
   public TextFieldNode(String placeholder, String initialValue, String label, String tooltip) {
     super(MARKDOWN);

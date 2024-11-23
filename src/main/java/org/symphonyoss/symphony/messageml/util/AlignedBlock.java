@@ -45,12 +45,12 @@ public class AlignedBlock {
    */
   public void align(Object... o) {
     int i = 0;
-    String s[] = new String[o.length];
+    String[] s = new String[o.length];
 
     for (int ii = 0; ii < o.length; ii++) { if (o[ii] != null) { s[ii] = o[ii].toString(); } }
 
     while (i < s.length && i < maxColumnLength.size()) {
-      int l = (s[i] == null ? 0 : s[i].length());
+      int l = s[i] == null ? 0 : s[i].length();
 
       if (maxColumnLength.get(i) < l) {
         maxColumnLength.set(i, l);
@@ -85,7 +85,7 @@ public class AlignedBlock {
         out.print(s[i]);
 
         if (i < s.length - 1) {
-          for (int l = (s[i] == null ? 0 : s[i].length()); l < maxColumnLength.get(i); l++) {
+          for (int l = s[i] == null ? 0 : s[i].length(); l < maxColumnLength.get(i); l++) {
             out.print(' ');
           }
         }

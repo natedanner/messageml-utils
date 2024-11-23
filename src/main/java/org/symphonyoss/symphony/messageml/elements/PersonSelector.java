@@ -42,7 +42,7 @@ public class PersonSelector extends FormElement implements LabelableElement, Too
   private static final String PRESENTATIONML_REQUIRED_ATTR = "data-required";
   private static final String PRESENTATIONML_VALUE_ATTR = "data-value";
 
-  private final static String MARKDOWN = "Person Selector";
+  private static final String MARKDOWN = "Person Selector";
   private static final String CLASS_ATTR = "class";
   private static final String PRESENTATIONML_NAME_ATTR = "data-name";
 

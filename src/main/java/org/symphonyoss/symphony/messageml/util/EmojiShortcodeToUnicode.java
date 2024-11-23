@@ -21,7 +21,7 @@ public class EmojiShortcodeToUnicode {
   }
 
   public static Boolean hasUnicodeRepresentation(String shortcode) {
-    return (emojiShortcodeToUnicode.get(shortcode) != null);
+    return emojiShortcodeToUnicode.get(shortcode) != null;
   }
 
   private static String emojiToUnicodeString(int... unicodes) {

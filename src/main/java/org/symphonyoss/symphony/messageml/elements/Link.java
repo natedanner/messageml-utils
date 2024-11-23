@@ -63,14 +63,11 @@ public class Link extends Element {
   @Override
   protected void buildAttribute(MessageMLParser parser,
       org.w3c.dom.Node item) throws InvalidInputException {
-    switch (item.getNodeName()) {
-      case ATTR_HREF:
-        uri = getUrlAttribute(item);
-        setAttribute(ATTR_HREF, uri.toString());
-        break;
-
-      default:
-        super.buildAttribute(parser, item);
+    if (ATTR_HREF.equals(item.getNodeName())) {
+      uri = getUrlAttribute(item);
+      setAttribute(ATTR_HREF, uri.toString());
+    } else {
+      super.buildAttribute(parser, item);
     }
   }
 

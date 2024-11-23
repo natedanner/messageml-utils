@@ -3,8 +3,8 @@ package org.symphonyoss.symphony.messageml.markdown.nodes.form;
 import org.commonmark.node.HardLineBreak;
 
 public class DialogNode extends FormNode {
-  private final static String MARKDOWN = "**Dialog**";
-  private final static String DIALOG_DELIMITER = "---";
+  private static final String MARKDOWN = "**Dialog**";
+  private static final String DIALOG_DELIMITER = "---";
 
   public DialogNode() {
     super();

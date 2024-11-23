@@ -8,8 +8,8 @@ import org.commonmark.node.CustomBlock;
  * @since 05/28/2019
  */
 public class FormElementNode extends CustomBlock {
-  protected final static String LEFT_DELIMITER = "(";
-  protected final static String RIGHT_DELIMITER = ")";
+  protected static final String LEFT_DELIMITER = "(";
+  protected static final String RIGHT_DELIMITER = ")";
 
   private String tagRepresentationOnMarkdown;
   private String text;

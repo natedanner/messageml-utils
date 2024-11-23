@@ -326,7 +326,7 @@ public class RoomSelectorTest extends ElementTest {
             (dataRequired != null ? " data-required=\"" + dataRequired.toString() + "\"" : "") +
             "></div>" + ACTION_BTN_ELEMENT + "</form></div>", context.getPresentationML());
     String expectedMarkdownText =
-        (dataPlaceholder != null) ? ":[" + addEscapeCharacter(dataPlaceholder) + "]" : "";
+        dataPlaceholder != null ? ":[" + addEscapeCharacter(dataPlaceholder) + "]" : "";
     assertEquals(
         "\n   \n(Room Selector" + expectedMarkdownText
             + ")" + ACTION_BTN_MARKDOWN

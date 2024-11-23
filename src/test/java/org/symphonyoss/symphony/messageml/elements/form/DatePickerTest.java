@@ -64,7 +64,7 @@ public class DatePickerTest extends ElementTest {
 
     String presentationML = context.getPresentationML();
 
-    String EXPECTED_MARKDOWN = "\n"
+    String expectedMarkdown = "\n"
         + "   \n"
         + "(Date Picker:[Please pick a date])(Button:Send)\n"
         + "   \n";
@@ -82,7 +82,7 @@ public class DatePickerTest extends ElementTest {
     assertEquals(Form.class, form.getClass());
     assertEquals(DatePicker.class, datePicker.getClass());
     assertTrue("Text should be empty", datePicker.getChildren().isEmpty());
-    assertEquals("Markdown", EXPECTED_MARKDOWN, context.getMarkdown());
+    assertEquals("Markdown", expectedMarkdown, context.getMarkdown());
     assertEquals("PresentationML", expectedPresentationML, presentationML);
   }
 
@@ -117,7 +117,7 @@ public class DatePickerTest extends ElementTest {
     Matcher matcher = pattern.matcher(presentationML);
     String uniqueLabelId = matcher.matches() ? matcher.group(2) : null;
 
-    String EXPECTED_MARKDOWN = "\n"
+    String expectedMarkdown = "\n"
         + "   \n"
         + "(Date Picker:[Departure date][This is \\n a hint][Please pick a date])(Button:Send)\n"
         + "   \n";
@@ -139,7 +139,7 @@ public class DatePickerTest extends ElementTest {
     assertEquals(Form.class, form.getClass());
     assertEquals(DatePicker.class, datePicker.getClass());
     assertTrue("Text should be empty", datePicker.getChildren().isEmpty());
-    assertEquals("Markdown", EXPECTED_MARKDOWN, context.getMarkdown());
+    assertEquals("Markdown", expectedMarkdown, context.getMarkdown());
     assertEquals("PresentationML", expectedPresentationML, presentationML);
   }
 
@@ -174,7 +174,7 @@ public class DatePickerTest extends ElementTest {
     Matcher matcher = pattern.matcher(presentationML);
     String uniqueLabelId = matcher.matches() ? matcher.group(2) : null;
 
-    String EXPECTED_MARKDOWN = "\n"
+    String expectedMarkdown = "\n"
         + "   \n"
             + "(Date Picker:[Departure\\_date][This\\_is\\_a\\_hint][Please\\_pick\\_a\\_date])(Button:Send)\n"
         + "   \n";
@@ -196,7 +196,7 @@ public class DatePickerTest extends ElementTest {
     assertEquals(Form.class, form.getClass());
     assertEquals(DatePicker.class, datePicker.getClass());
     assertTrue("Text should be empty", datePicker.getChildren().isEmpty());
-    assertEquals("Markdown", EXPECTED_MARKDOWN, context.getMarkdown());
+    assertEquals("Markdown", expectedMarkdown, context.getMarkdown());
     assertEquals("PresentationML", expectedPresentationML, presentationML);
   }
 
@@ -423,12 +423,12 @@ public class DatePickerTest extends ElementTest {
     String input = "<messageML><form id=\"" + formId + "\">"
         + "<date-picker name=\"date-travel\"/>"
         + ACTION_BTN_ELEMENT + "</form></messageML>";
-    String EXPECTED_MARKDOWN = "\n"
+    String expectedMarkdown = "\n"
         + "   \n"
         + "(Date Picker)(Button:Send)\n"
         + "   \n";
     context.parseMessageML(input, null, MessageML.MESSAGEML_VERSION);
-    assertEquals("Markdown", EXPECTED_MARKDOWN, context.getMarkdown());
+    assertEquals("Markdown", expectedMarkdown, context.getMarkdown());
   }
 
   @Test
@@ -436,12 +436,12 @@ public class DatePickerTest extends ElementTest {
     String input = "<messageML><form id=\"" + formId + "\">"
         + "<date-picker name=\"date-travel\" placeholder=\"Please pick a date\"/>"
         + ACTION_BTN_ELEMENT + "</form></messageML>";
-    String EXPECTED_MARKDOWN = "\n"
+    String expectedMarkdown = "\n"
         + "   \n"
         + "(Date Picker:[Please pick a date])(Button:Send)\n"
         + "   \n";
     context.parseMessageML(input, null, MessageML.MESSAGEML_VERSION);
-    assertEquals("Markdown", EXPECTED_MARKDOWN, context.getMarkdown());
+    assertEquals("Markdown", expectedMarkdown, context.getMarkdown());
   }
 
   private static Stream<Arguments> messageMlStream() {

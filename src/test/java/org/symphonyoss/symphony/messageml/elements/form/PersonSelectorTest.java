@@ -279,7 +279,7 @@ public class PersonSelectorTest extends ElementTest {
         (dataPlaceholder != null ? " data-placeholder=\"" + dataPlaceholder + "\"" : "") +
         (dataRequired != null ? " data-required=\"" + dataRequired.toString() + "\"" : "") +
         "></div>" + ACTION_BTN_ELEMENT + "</form></div>", context.getPresentationML());
-    String expectedMarkdownText = (dataPlaceholder != null) ? ":[" + addEscapeCharacter(dataPlaceholder) + "]" : "";
+    String expectedMarkdownText = dataPlaceholder != null ? ":[" + addEscapeCharacter(dataPlaceholder) + "]" : "";
     assertEquals("\n   \n(Person Selector" + expectedMarkdownText + ")" + ACTION_BTN_MARKDOWN
         + "\n   \n", context.getMarkdown());
   }

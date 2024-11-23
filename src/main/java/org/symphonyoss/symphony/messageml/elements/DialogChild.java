@@ -63,7 +63,7 @@ public abstract class DialogChild extends Element {
     assertNoAttributes();
     assertParent(list);
 
-    boolean containsDialog = getChildren().stream().anyMatch(e -> e instanceof Dialog);
+    boolean containsDialog = getChildren().stream().anyMatch(Dialog.class::isInstance);
     if (containsDialog) {
       throw new InvalidInputException(getMessageMLTag() + " should not contain a dialog");
     }

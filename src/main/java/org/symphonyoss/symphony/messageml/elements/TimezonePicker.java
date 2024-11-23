@@ -114,7 +114,9 @@ public class TimezonePicker extends FormElement implements LabelableElement, Too
 
   private void assertAttrDisabledTimezone(String attributeName) throws InvalidInputException {
     String disabledTimezones = getAttribute(attributeName);
-    if (disabledTimezones == null) return;
+    if (disabledTimezones == null) {
+      return;
+    }
     try {
       List<String> timezones = MAPPER.readValue(disabledTimezones,
           MAPPER.getTypeFactory().constructCollectionType(List.class, String.class));

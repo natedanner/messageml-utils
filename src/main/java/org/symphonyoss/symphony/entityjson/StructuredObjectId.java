@@ -33,19 +33,19 @@ import com.fasterxml.jackson.databind.JsonNode;
  */
 public class StructuredObjectId
 {
-  private final String type_;
-  private final String value_;
+  private final String type;
+  private final String value;
 
   /* package */ StructuredObjectId(JsonNode node)
   {
-    type_ = node.get("type").asText();
-    value_ = node.get("value").asText();
+    type = node.get("type").asText();
+    value = node.get("value").asText();
   }
 
   @Override
   public String toString()
   {
-    return type_ + ":" + value_;
+    return type + ":" + value;
   }
 
 }

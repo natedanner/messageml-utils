@@ -59,7 +59,7 @@ public class TimePickerTest extends ElementTest {
 
     String presentationML = context.getPresentationML();
 
-    String EXPECTED_MARKDOWN = "\n"
+    String expectedMarkdown = "\n"
         + "   \n"
             + "(Time Picker:[Please pick a time])(Button:Send)\n"
         + "   \n";
@@ -81,7 +81,7 @@ public class TimePickerTest extends ElementTest {
     assertEquals(Form.class, form.getClass());
     assertEquals(TimePicker.class, timePicker.getClass());
     assertTrue("Text should be empty", timePicker.getChildren().isEmpty());
-    assertEquals("Markdown", EXPECTED_MARKDOWN, context.getMarkdown());
+    assertEquals("Markdown", expectedMarkdown, context.getMarkdown());
     assertEquals("PresentationML", expectedPresentationML, presentationML);
   }
 
@@ -115,7 +115,7 @@ public class TimePickerTest extends ElementTest {
     String uniqueLabelId = matcher.matches() ? matcher.group(2) : null;
 
 
-    String EXPECTED_MARKDOWN = "\n"
+    String expectedMarkdown = "\n"
         + "   \n"
             + "(Time Picker:[Please pick a time][Meeting time][This is a hint])(Button:Send)\n"
         + "   \n";
@@ -139,7 +139,7 @@ public class TimePickerTest extends ElementTest {
     assertEquals(Form.class, form.getClass());
     assertEquals(TimePicker.class, timePicker.getClass());
     assertTrue("Text should be empty", timePicker.getChildren().isEmpty());
-    assertEquals("Markdown", EXPECTED_MARKDOWN, context.getMarkdown());
+    assertEquals("Markdown", expectedMarkdown, context.getMarkdown());
     assertEquals("PresentationML", expectedPresentationML, presentationML);
   }
 
@@ -181,7 +181,7 @@ public class TimePickerTest extends ElementTest {
     Matcher matcher = pattern.matcher(presentationML);
     String uniqueLabelId = matcher.matches() ? matcher.group(2) : null;
 
-    String EXPECTED_MARKDOWN = "\n"
+    String expectedMarkdown = "\n"
         + "   \n"
             + "(Time Picker:[This is \\n a hint])(Button:Send)\n"
         + "   \n";
@@ -192,7 +192,7 @@ public class TimePickerTest extends ElementTest {
             "<input type=\"time\" name=\"time-meeting\" id=\"time-picker-%s\"/>" +
             "</div>%s</form></div>", uniqueLabelId, uniqueLabelId, ACTION_BTN_ELEMENT );
 
-    assertEquals("Markdown", EXPECTED_MARKDOWN, context.getMarkdown());
+    assertEquals("Markdown", expectedMarkdown, context.getMarkdown());
     assertEquals("PresentationML", expectedPresentationML, presentationML);
   }
 
@@ -350,12 +350,12 @@ public class TimePickerTest extends ElementTest {
     String input = "<messageML><form id=\"" + formId + "\">"
             + "<time-picker name=\"meeting-time\"/>"
             + ACTION_BTN_ELEMENT + "</form></messageML>";
-    String EXPECTED_MARKDOWN = "\n"
+    String expectedMarkdown = "\n"
         + "   \n"
             + "(Time Picker)(Button:Send)\n"
         + "   \n";
     context.parseMessageML(input, null, MessageML.MESSAGEML_VERSION);
-    assertEquals("Markdown", EXPECTED_MARKDOWN, context.getMarkdown());
+    assertEquals("Markdown", expectedMarkdown, context.getMarkdown());
   }
 
   @Test
@@ -369,12 +369,12 @@ public class TimePickerTest extends ElementTest {
 
     context.parseMessageML(input, null, MessageML.MESSAGEML_VERSION);
 
-    String EXPECTED_MARKDOWN = "\n"
+    String expectedMarkdown = "\n"
         + "   \n"
             + "(Time Picker:[This is\\_a\\_hint])(Button:Send)\n"
         + "   \n";
 
-    assertEquals("Markdown", EXPECTED_MARKDOWN, context.getMarkdown());
+    assertEquals("Markdown", expectedMarkdown, context.getMarkdown());
   }
 
   private static Stream<Arguments> messageMlStream() {

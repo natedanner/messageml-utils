@@ -862,13 +862,13 @@ public class TextFieldTest extends ElementTest {
   }
 
   private String getExpectedTextFieldMarkdown(String placeholder, String initialValue, String label, String title) {
-    String expectedMarkdownText = ((placeholder != null) ? "[" + addEscapeCharacter(placeholder) + "]" : "") +
-        ((label != null) ? "[" + addEscapeCharacter(label) + "]" : "") +
-        ((title != null) ? "[" + addEscapeCharacter(title) + "]" : "") +
-        ((initialValue != null) ? addEscapeCharacter(initialValue) : "");
+    String expectedMarkdownText = (placeholder != null ? "[" + addEscapeCharacter(placeholder) + "]" : "") +
+        (label != null ? "[" + addEscapeCharacter(label) + "]" : "") +
+        (title != null ? "[" + addEscapeCharacter(title) + "]" : "") +
+        (initialValue != null ? addEscapeCharacter(initialValue) : "");
 
     return String.format("\n   \n(Text Field%s)" + ACTION_BTN_MARKDOWN + "\n   \n",
-        (!expectedMarkdownText.isEmpty()) ? ":" + expectedMarkdownText : "");
+        !expectedMarkdownText.isEmpty() ? ":" + expectedMarkdownText : "");
   }
 
   private void verifyTextFieldMarkdown(String placeholder, String initialValue, String label, String title) {

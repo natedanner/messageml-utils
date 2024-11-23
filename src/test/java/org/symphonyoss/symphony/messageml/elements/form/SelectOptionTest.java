@@ -906,7 +906,7 @@ public class SelectOptionTest extends ElementTest {
   }
   private String getRequiredPresentationML(String required) {
     if (required != null) {
-      if (required.equals("true") || required.equals("false")) {
+      if ("true".equals(required) || "false".equals(required)) {
         return String.format(" required=\"%s\"", required);
       }
     }
@@ -915,10 +915,10 @@ public class SelectOptionTest extends ElementTest {
   }
 
   private String getExpectedSelectMarkdown(Select select, boolean hasLabel, boolean hasTitle) {
-    String FORM_MARKDOWN_HEADER = "\n   \n";
-    String FORM_MARKDOWN_FOOTER = "   \n";
+    String formMarkdownHeader = "\n   \n";
+    String formMarkdownFooter = "   \n";
 
-    StringBuilder expectedMarkdown = new StringBuilder(FORM_MARKDOWN_HEADER);
+    StringBuilder expectedMarkdown = new StringBuilder(formMarkdownHeader);
     expectedMarkdown.append(" ");
     expectedMarkdown.append(hasLabel ? addEscapeCharacter(select.getAttribute(LABEL_ATTR)) : "");
     expectedMarkdown.append(" \n");
@@ -929,7 +929,7 @@ public class SelectOptionTest extends ElementTest {
       }
     }
 
-    expectedMarkdown.append(ACTION_BTN_MARKDOWN + "\n").append(FORM_MARKDOWN_FOOTER);
+    expectedMarkdown.append(ACTION_BTN_MARKDOWN + "\n").append(formMarkdownFooter);
     return expectedMarkdown.toString();
   }
 
@@ -938,7 +938,7 @@ public class SelectOptionTest extends ElementTest {
     String selectOpeningTag =
         "<div data-format=\"PresentationML\" data-version=\"2.0\"><form id=\"" + FORM_ID_ATTR
             + "\">"
-            + ((hasLabel || hasTitle) ? "<div class=\"dropdown-group\" data-generated=\"true\">" : "")
+            + (hasLabel || hasTitle ? "<div class=\"dropdown-group\" data-generated=\"true\">" : "")
             + (hasLabel ? "<label for=\"dropdown-" + uniqueLabelId + "\">" + select.getAttribute(LABEL_ATTR)
             + "</label>" : "")
             + (hasTitle ? "<span class=\"info-hint\" data-target-id=\"dropdown-" + uniqueLabelId + "\" data-title=\""
@@ -946,7 +946,7 @@ public class SelectOptionTest extends ElementTest {
             + "<select " + getPlaceholderAttribute(select.getAttribute(DATA_PLACEHOLDER_ATTR))
             + "name=\"" + select.getAttribute(NAME_ATTR) + "\""
             + getRequiredPresentationML(select.getAttribute(REQUIRED_ATTR))
-            + ((hasLabel || hasTitle) ? " id=\"dropdown-" + uniqueLabelId + "\"" : "")
+            + (hasLabel || hasTitle ? " id=\"dropdown-" + uniqueLabelId + "\"" : "")
             + ">";
     String selectClosingTag = "</select>";
     String formDivClosingTag = "</form></div>";
@@ -958,7 +958,7 @@ public class SelectOptionTest extends ElementTest {
             option.getAttribute(VALUE_ATTR) + "\">" + option.getChild(0).asText() + "</option>";
       }
     }
-    return selectOpeningTag + selectChildren + selectClosingTag + ((hasLabel || hasTitle) ? "</div>" : "")
+    return selectOpeningTag + selectChildren + selectClosingTag + (hasLabel || hasTitle ? "</div>" : "")
         + ACTION_BTN_ELEMENT + formDivClosingTag;
   }
 

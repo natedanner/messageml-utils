@@ -515,7 +515,7 @@ public class CheckboxTest extends ElementTest {
 
   private String buildExpectedMarkdownForCheckbox(String label) {
     String expectedMarkdownText = StringUtils.defaultIfBlank(label, StringUtils.EMPTY);
-    return String.format("\n   \n %s %s\n   \n", expectedMarkdownText,
+    return String.format("%n   %n %s %s%n   %n", expectedMarkdownText,
         ACTION_BTN_MARKDOWN);
   }
 }

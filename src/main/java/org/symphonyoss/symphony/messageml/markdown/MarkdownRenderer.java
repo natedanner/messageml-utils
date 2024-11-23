@@ -79,10 +79,10 @@ public class MarkdownRenderer extends AbstractVisitor {
 
   private boolean removeNewlines = true;
   private Character bulletListMarker;
-  private int bulletListLevel = 0;
+  private int bulletListLevel;
   private Integer orderedListCounter;
   private Character orderedListDelimiter;
-  private int orderedListLevel = 0;
+  private int orderedListLevel;
 
   /**
    * Process the document tree and generate its text representation.
@@ -156,7 +156,7 @@ public class MarkdownRenderer extends AbstractVisitor {
     Character previousMarker = bulletListMarker;
     int previousLevel = bulletListLevel;
 
-    bulletListLevel += (ul.getParent() instanceof ListItem) ? 1 : 0;
+    bulletListLevel += ul.getParent() instanceof ListItem ? 1 : 0;
 
     bulletListMarker = ul.getBulletMarker();
     visitChildren(ul);
@@ -176,7 +176,7 @@ public class MarkdownRenderer extends AbstractVisitor {
     Character previousDelimiter = orderedListDelimiter;
     int previousLevel = orderedListLevel;
 
-    orderedListLevel += (ol.getParent() instanceof ListItem) ? 1 : 0;
+    orderedListLevel += ol.getParent() instanceof ListItem ? 1 : 0;
 
     orderedListCounter = ol.getStartNumber();
     orderedListDelimiter = ol.getDelimiter();
@@ -464,7 +464,7 @@ public class MarkdownRenderer extends AbstractVisitor {
 
     char getLastChar() {
       int length = length();
-      return (length != 0) ? out.charAt(length - 1) : 0;
+      return length != 0 ? out.charAt(length - 1) : 0;
     }
 
     void doubleLine() {

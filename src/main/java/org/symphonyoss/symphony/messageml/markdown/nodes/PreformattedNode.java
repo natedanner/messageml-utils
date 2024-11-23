@@ -25,7 +25,7 @@ import org.commonmark.node.CustomBlock;
  * @since 4/7/17
  */
 public class PreformattedNode extends CustomBlock {
-  private final static String DELIMITER = "\n";
+  private static final String DELIMITER = "\n";
 
   public String getOpeningDelimiter() {
     return DELIMITER;

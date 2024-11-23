@@ -228,15 +228,12 @@ public class MarkdownParser extends AbstractVisitor {
   }
 
   private void visit(KeywordNode keyword) {
-    switch (keyword.getPrefix()) {
-      case HashTag.PREFIX:
-        HashTag hashtag = new HashTag(parent, ++index, keyword.getText());
-        visitChildren(hashtag, keyword);
-        break;
-      case CashTag.PREFIX:
-        CashTag cashtag = new CashTag(parent, ++index, keyword.getText());
-        visitChildren(cashtag, keyword);
-        break;
+    if (HashTag.PREFIX.equals(keyword.getPrefix())) {
+      HashTag hashtag = new HashTag(parent, ++index, keyword.getText());
+      visitChildren(hashtag, keyword);
+    } else if (CashTag.PREFIX.equals(keyword.getPrefix())) {
+      CashTag cashtag = new CashTag(parent, ++index, keyword.getText());
+      visitChildren(cashtag, keyword);
     }
   }
 
@@ -299,7 +296,7 @@ public class MarkdownParser extends AbstractVisitor {
     }
 
     // If entity indices are outside the message, pad the message to the necessary length
-    int lastIndex = Math.max((!entities.isEmpty()) ? entities.lastKey() : 0, (!media.isEmpty()) ? media.lastKey() : 0);
+    int lastIndex = Math.max(!entities.isEmpty() ? entities.lastKey() : 0, !media.isEmpty() ? media.lastKey() : 0);
     if (message.length() <= lastIndex) {
       message = StringUtils.rightPad(message, lastIndex + 1);
     }

@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 public enum ProviderId {
   EDI("edi"),
   MANUAL("manual");
-  private String value;
+  private final String value;
 
   ProviderId(String value) {
     this.value = value;

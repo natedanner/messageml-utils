@@ -29,7 +29,7 @@ import org.commonmark.node.Node;
  */
 public class TableNode extends CustomBlock {
 
-  private final static String DELIMITER = "   ";
+  private static final String DELIMITER = "   ";
 
   public String getOpeningDelimiter() {
     return "\n" + DELIMITER + "\n";

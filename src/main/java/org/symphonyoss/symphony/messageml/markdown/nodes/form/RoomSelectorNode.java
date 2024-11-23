@@ -8,11 +8,11 @@ package org.symphonyoss.symphony.messageml.markdown.nodes.form;
  * @since 09/15/2023
  */
 public class RoomSelectorNode extends FormElementNode implements PlaceholderLabelTooltipNode {
-  private final static String MARKDOWN = "Room Selector";
+  private static final String MARKDOWN = "Room Selector";
 
-  private String placeholder;
-  private String label;
-  private String tooltip;
+  private final String placeholder;
+  private final String label;
+  private final String tooltip;
 
   public RoomSelectorNode(String placeholder, String label, String tooltip) {
     super(MARKDOWN, placeholder);

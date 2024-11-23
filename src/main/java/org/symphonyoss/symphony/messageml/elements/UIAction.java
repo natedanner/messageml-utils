@@ -155,13 +155,10 @@ public class UIAction extends Element {
 
     final String actionAttribute = getAttribute(ACTION_ATTR);
     if (actionAttribute != null) {
-      switch (actionAttribute) {
-        case OPEN_IM:
-          context.updateItemCount(BiFields.OPENIM.getValue());
-          break;
-        case OPEN_DIALOG:
-          context.updateItemCount(BiFields.OPENDIALOG.getValue());
-          break;
+      if (OPEN_IM.equals(actionAttribute)) {
+        context.updateItemCount(BiFields.OPENIM.getValue());
+      } else if (OPEN_DIALOG.equals(actionAttribute)) {
+        context.updateItemCount(BiFields.OPENDIALOG.getValue());
       }
     }
   }

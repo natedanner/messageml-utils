@@ -23,8 +23,8 @@ public class TextArea extends FormElement implements RegexElement, LabelableElem
 
   public static final String MESSAGEML_TAG = "textarea";
 
-  private Integer MIN_ALLOWED_LENGTH = 0;
-  private Integer MAX_ALLOWED_LENGTH = 10000;
+  private static final Integer MIN_ALLOWED_LENGTH = 0;
+  private static final Integer MAX_ALLOWED_LENGTH = 10000;
 
   private static final String PLACEHOLDER_ATTR = "placeholder";
   private static final String REQUIRED_ATTR = "required";

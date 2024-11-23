@@ -50,7 +50,10 @@ public class Mml2Pml2Pml {
   @MethodSource("examples")
   void mml2Pml2Pml(String file, String message, String entityJson) {
 
-    String pml1, pml2, md1, md2;
+    String pml1;
+    String pml2;
+    String md1;
+    String md2;
 
     System.out.printf("----\n### EXAMPLE(%s)%n", file);
     System.out.printf("> MessageML:\n%s\n%s%s%n", LINE, prettyXml(message), LINE);

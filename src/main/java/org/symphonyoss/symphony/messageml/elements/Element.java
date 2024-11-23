@@ -84,10 +84,12 @@ public abstract class Element {
           LineBreak.class, Span.class, Emoji.class, HashTag.class, CashTag.class, Mention.class,
           Subscript.class, Superscript.class);
 
-  private static final List<Class<? extends Element>> PHRASING_OR_PREFORMATTED_TYPES = new ArrayList<Class<? extends Element>>() {{
-    addAll(PHRASING_TYPES);
-    add(Preformatted.class);
-  }};
+  private static final List<Class<? extends Element>> PHRASING_OR_PREFORMATTED_TYPES;
+  static {
+    PHRASING_OR_PREFORMATTED_TYPES = new ArrayList<>();
+    PHRASING_OR_PREFORMATTED_TYPES.addAll(PHRASING_TYPES);
+    PHRASING_OR_PREFORMATTED_TYPES.add(Preformatted.class);
+  }
 
   protected FormatEnum format;
   private final Map<String, String> attributes = new LinkedHashMap<>();
@@ -167,7 +169,7 @@ public abstract class Element {
     for (String style : styles) {
       if (style.startsWith("tempo-")) {
         context.updateItemCount(BiFields.STYLES_CLASS_TEMPO.getValue());
-      } else if (style.equals("entity")) {
+      } else if ("entity".equals(style)) {
         context.updateItemCount(BiFields.ENTITIES.getValue());
       } else {
         context.updateItemCount(BiFields.STYLES_CLASS_OTHER.getValue());
@@ -534,7 +536,7 @@ public abstract class Element {
   }
 
   public boolean hasExactNumberOfChildren(int childrenNumber) {
-    return (getChildren() != null && getChildren().size() == childrenNumber);
+    return getChildren() != null && getChildren().size() == childrenNumber;
   }
 
   /**

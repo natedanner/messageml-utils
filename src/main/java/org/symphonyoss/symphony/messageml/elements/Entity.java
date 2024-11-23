@@ -48,16 +48,14 @@ public abstract class Entity extends Element {
   @Override
   protected void buildAttribute(MessageMLParser parser,
       Node item) throws InvalidInputException {
-    switch (item.getNodeName()) {
-      case ENTITY_ID_ATTR:
-        this.entityId = item.getTextContent();
-        break;
-      default:
-        if (format == FormatEnum.PRESENTATIONML) {
-          super.buildAttribute(parser, item);
-        } else {
-          throwInvalidInputException(item);
-        }
+    if (ENTITY_ID_ATTR.equals(item.getNodeName())) {
+      this.entityId = item.getTextContent();
+    } else {
+      if (format == FormatEnum.PRESENTATIONML) {
+        super.buildAttribute(parser, item);
+      } else {
+        throwInvalidInputException(item);
+      }
     }
   }
 

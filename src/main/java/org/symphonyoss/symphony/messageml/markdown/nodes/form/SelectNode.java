@@ -9,12 +9,12 @@ import org.apache.commons.lang3.StringUtils;
  * @since 06/05/2019
  */
 public class SelectNode extends FormElementNode implements PlaceholderLabelTooltipNode {
-  private final static String MARKDOWN = "Dropdown";
-  private final static String SELECT_DELIMITER = " ";
-  
-  private String placeholder;
-  private String label;
-  private String tooltip;
+  private static final String MARKDOWN = "Dropdown";
+  private static final String SELECT_DELIMITER = " ";
+
+  private final String placeholder;
+  private final String label;
+  private final String tooltip;
 
   public SelectNode(String placeholder, String label, String tooltip) {
     super(MARKDOWN, placeholder);

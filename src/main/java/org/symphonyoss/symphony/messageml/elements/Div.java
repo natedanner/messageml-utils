@@ -89,7 +89,7 @@ public class Div extends Element {
           + "class is \"entity\".");
     }
 
-    String[] classes = (classAttr != null) ? classAttr.split(" ") : null;
+    String[] classes = classAttr != null ? classAttr.split(" ") : null;
 
     for (String attr : new String[] {ATTR_ICON_SRC, ATTR_ACCENT_COLOR}) {
       verifyClassSpecificAttribute(attr, classes, Card.PRESENTATIONML_CLASS);

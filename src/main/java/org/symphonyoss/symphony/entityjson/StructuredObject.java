@@ -59,11 +59,11 @@ public class StructuredObject
   private final IEntityJsonInstanceContext context_;
   private final Object                     instanceSource_;
   private final ObjectNode                 jsonNode_;
-  private final String                     toString_;
-  private final String                     type_;
-  private final String                     version_;
-  private final int                        majorVersion_;
-  private final int                        minorVersion_;
+  private final String                     toString;
+  private final String                     type;
+  private final String                     version;
+  private final int                        majorVersion;
+  private final int                        minorVersion;
 
   private final List<StructuredObjectId> idList_;
       
@@ -78,18 +78,18 @@ public class StructuredObject
     instanceSource_ = instanceSource;
     jsonNode_ = jsonNode;
     
-    type_ = jsonNode.get("type").asText();
-    version_ = jsonNode.get("version").asText();
+    type = jsonNode.get("type").asText();
+    version = jsonNode.get("version").asText();
     
-    String[] parts = version_.split("\\.");
-    majorVersion_ = Integer.parseInt(parts[0]);
-    minorVersion_ = Integer.parseInt(parts[1]);
+    String[] parts = version.split("\\.");
+    majorVersion = Integer.parseInt(parts[0]);
+    minorVersion = Integer.parseInt(parts[1]);
     
     StringBuffer s = new StringBuffer("StructuredObject(\"");
     
-    s.append(type_);
+    s.append(type);
     s.append(" v");
-    s.append(version_);
+    s.append(version);
     s.append("\"");
     
     boolean first = true;
@@ -117,7 +117,7 @@ public class StructuredObject
     idList_ = Collections.unmodifiableList(idList);
     
     s.append(")");
-    toString_ = s.toString();
+    toString = s.toString();
   }
 
   /**
@@ -144,16 +144,16 @@ public class StructuredObject
   {
     StringBuffer ubuf = new StringBuffer("https://schemas.oss.symphony.com/proposed");
     
-    for(String part : type_.split("\\."))
+    for(String part : type.split("\\."))
     {
       ubuf.append("/");
       ubuf.append(part);
     }
     
     ubuf.append("-v");
-    ubuf.append(majorVersion_);
+    ubuf.append(majorVersion);
     ubuf.append("_");
-    ubuf.append(minorVersion_);
+    ubuf.append(minorVersion);
     ubuf.append(".json");
     
     try
@@ -171,7 +171,7 @@ public class StructuredObject
    */
   public String getType()
   {
-    return type_;
+    return type;
   }
 
   /**
@@ -180,7 +180,7 @@ public class StructuredObject
    */
   public String getVersion()
   {
-    return version_;
+    return version;
   }
 
   /**
@@ -188,7 +188,7 @@ public class StructuredObject
    */
   public int getMajorVersion()
   {
-    return majorVersion_;
+    return majorVersion;
   }
 
   /**
@@ -196,7 +196,7 @@ public class StructuredObject
    */
   public int getMinorVersion()
   {
-    return minorVersion_;
+    return minorVersion;
   }
 
   /**
@@ -210,6 +210,6 @@ public class StructuredObject
   @Override
   public String toString()
   {
-    return toString_;
+    return toString;
   }
 }

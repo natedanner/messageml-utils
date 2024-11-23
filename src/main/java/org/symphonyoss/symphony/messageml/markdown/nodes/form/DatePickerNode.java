@@ -6,11 +6,11 @@ import java.util.StringJoiner;
 import java.util.stream.Stream;
 
 public class DatePickerNode extends FormElementNode {
-  private final static String MARKDOWN = "Date Picker";
+  private static final String MARKDOWN = "Date Picker";
 
-  private String label;
-  private String tooltip;
-  private String placeholder;
+  private final String label;
+  private final String tooltip;
+  private final String placeholder;
 
   public DatePickerNode(String label, String tooltip, String placeholder) {
     super(MARKDOWN, placeholder);

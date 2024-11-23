@@ -21,8 +21,8 @@ import java.io.OutputStream;
 
 public class CountedOutputStream extends OutputStream {
   private final OutputStream out;
-  private long offset = 0L;
-  private int counted = 0;
+  private long offset;
+  private int counted;
 
   public CountedOutputStream(OutputStream out) {
     this.out = out;

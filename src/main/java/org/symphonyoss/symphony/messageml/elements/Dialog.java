@@ -51,7 +51,7 @@ public class Dialog extends Element {
 
   private static final ShortID SHORT_ID = new ShortID();
 
-  private String presentationMlIdAttribute = null;
+  private String presentationMlIdAttribute;
 
   public Dialog(Element parent, FormatEnum format) {
     super(parent, MESSAGEML_TAG, format);
@@ -134,7 +134,7 @@ public class Dialog extends Element {
   }
 
   private void validateChildrenTypes() throws InvalidInputException {
-    long formsCount = getChildren().stream().filter(element -> element instanceof Form).count();
+    long formsCount = getChildren().stream().filter(Form.class::isInstance).count();
     if (formsCount == 1) {
       assertContentModel(singleton(Form.class),
           "A \"dialog\" element can't contain a \"form\" element and any other element.");

@@ -206,7 +206,7 @@ public class MessageMLContext {
 
     for (int i = 0; i < nodes.getLength(); i++) {
       Node node = nodes.item(i);
-      String text = (preserveWhitespace) ? node.getTextContent() : node.getTextContent().trim();
+      String text = preserveWhitespace ? node.getTextContent() : node.getTextContent().trim();
 
       // Prepend space unless we're at the first node or we trim whitespace and current text is blank
       if (i > 0 && StringUtils.isNotEmpty(text)) {

@@ -45,7 +45,7 @@ public class TextField extends FormElement implements RegexElement, LabelableEle
   private static final Integer MIN_ALLOWED_LENGTH = 1;
   private static final Integer MAX_ALLOWED_LENGTH = 128;
 
-  private final static String MARKDOWN = "Text Field";
+  private static final String MARKDOWN = "Text Field";
 
   public TextField(Element parent, FormatEnum messageFormat) {
     super(parent, MESSAGEML_TAG, messageFormat);
@@ -87,13 +87,10 @@ public class TextField extends FormElement implements RegexElement, LabelableEle
   @Override
   public void buildAll(MessageMLParser parser, org.w3c.dom.Element element)
       throws InvalidInputException, ProcessingException {
-    switch (getFormat()) {
-      case MESSAGEML:
-        super.buildAll(parser, element);
-        break;
-      case PRESENTATIONML:
-        this.buildAllFromPresentationML(parser, element);
-        break;
+    if (getFormat() == FormatEnum.MESSAGEML) {
+      super.buildAll(parser, element);
+    } else if (getFormat() == FormatEnum.PRESENTATIONML) {
+      this.buildAllFromPresentationML(parser, element);
     }
   }
 

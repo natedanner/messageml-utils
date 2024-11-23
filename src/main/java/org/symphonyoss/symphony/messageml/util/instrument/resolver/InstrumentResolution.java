@@ -9,7 +9,7 @@ public class InstrumentResolution {
   private String bbgCompTicker;
   private String figi;
   private String figiTicker;
-  private String uniqueId = null;
+  private String uniqueId;
   private String isin;
   private String usCode;
   private String fullBbgCompTicker;

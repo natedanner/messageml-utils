@@ -156,8 +156,8 @@ public class EmojiTest extends ElementTest {
     assertEquals("PresentationML", "<div data-format=\"PresentationML\" data-version=\"2.0\"><span class=\"entity\" "
         + "data-entity-id=\"emoji1\"><b>Test of content</b></span></div>", context.getPresentationML());
 
-    String familyAttr = (family != null) ? ",\"family\":\"" + family + "\"" : "";
-    String unicodeAttr = (unicode != null) ? ",\"unicode\":\"" + unicode + "\"" : "";
+    String familyAttr = family != null ? ",\"family\":\"" + family + "\"" : "";
+    String unicodeAttr = unicode != null ? ",\"unicode\":\"" + unicode + "\"" : "";
     assertEquals("EntityJSON",
         "{" +
             "\"emoji1\":{" +

@@ -40,12 +40,10 @@ public class Image extends Element {
   @Override
   protected void buildAttribute(MessageMLParser parser,
       Node item) throws InvalidInputException {
-    switch (item.getNodeName()) {
-      case ATTR_SRC:
-        setAttribute(ATTR_SRC, getStringAttribute(item));
-        break;
-      default:
-        super.buildAttribute(parser, item);
+    if (ATTR_SRC.equals(item.getNodeName())) {
+      setAttribute(ATTR_SRC, getStringAttribute(item));
+    } else {
+      super.buildAttribute(parser, item);
     }
   }
 

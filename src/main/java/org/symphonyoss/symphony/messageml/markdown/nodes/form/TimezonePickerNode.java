@@ -2,7 +2,7 @@ package org.symphonyoss.symphony.messageml.markdown.nodes.form;
 
 public class TimezonePickerNode extends FormElementNode implements PlaceholderLabelTooltipNode {
 
-  private final static String MARKDOWN = "Timezone Picker";
+  private static final String MARKDOWN = "Timezone Picker";
 
   private final String label;
   private final String tooltip;

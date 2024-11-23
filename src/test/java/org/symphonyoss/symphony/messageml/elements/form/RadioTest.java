@@ -231,7 +231,7 @@ public class RadioTest extends ElementTest {
     expectedException.expect(InvalidInputException.class);
     expectedException.expectMessage("Invalid PresentationML for the \"radio\" element");
 
-    context.parseMessageML(input.toString(), null, MessageML.MESSAGEML_VERSION);
+    context.parseMessageML(input, null, MessageML.MESSAGEML_VERSION);
   }
 
   @Test
@@ -246,7 +246,7 @@ public class RadioTest extends ElementTest {
     expectedException.expect(InvalidInputException.class);
     expectedException.expectMessage("Invalid PresentationML for the \"radio\" element");
 
-    context.parseMessageML(input.toString(), null, MessageML.MESSAGEML_VERSION);
+    context.parseMessageML(input, null, MessageML.MESSAGEML_VERSION);
   }
 
   @Test

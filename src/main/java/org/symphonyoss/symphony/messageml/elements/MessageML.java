@@ -90,13 +90,10 @@ public class MessageML extends Element {
           super.buildAttribute(parser, item);
       }
     } else {
-      switch (item.getNodeName()) {
-        case ATTR_XMLNS:
-          this.xmlns = getStringAttribute(item);
-          break;
-
-        default:
-          super.buildAttribute(parser, item);
+      if (ATTR_XMLNS.equals(item.getNodeName())) {
+        this.xmlns = getStringAttribute(item);
+      } else {
+        super.buildAttribute(parser, item);
       }
     }
   }
@@ -198,7 +195,7 @@ public class MessageML extends Element {
 
     List<Tag> elements = result.getChildrenOfType(Tag.class)
         .stream()
-        .map(element -> Tag.class.cast(element))
+        .map(Tag.class::cast)
         .collect(Collectors.toList());
     if (elements != null && !elements.isEmpty()) {processFinancialTags(elements, dataProvider);}
   }

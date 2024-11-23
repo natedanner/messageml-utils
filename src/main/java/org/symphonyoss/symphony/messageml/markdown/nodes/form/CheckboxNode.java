@@ -9,8 +9,8 @@ import org.apache.commons.lang3.StringUtils;
  * @since 10/21/2019
  */
 public class CheckboxNode extends FormElementNode {
-  private final static String MARKDOWN = "Checkbox";
-  private final static String CHECKBOX_DELIMITER = " ";
+  private static final String MARKDOWN = "Checkbox";
+  private static final String CHECKBOX_DELIMITER = " ";
 
   private String label;
   

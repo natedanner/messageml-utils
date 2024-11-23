@@ -35,7 +35,7 @@ import java.net.URI;
  * @author Bruce Skingle
  *
  */
-public class EntityJsonURIDownloader implements URIDownloader
+public final class EntityJsonURIDownloader implements URIDownloader
 {
   private static final URIDownloader INSTANCE = new EntityJsonURIDownloader();
 

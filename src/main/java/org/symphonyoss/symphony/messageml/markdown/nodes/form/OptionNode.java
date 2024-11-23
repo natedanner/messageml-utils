@@ -1,8 +1,8 @@
 package org.symphonyoss.symphony.messageml.markdown.nodes.form;
 
 public class OptionNode extends FormElementNode {
-  private final static String LEFT_OPTION_DELIMITER = "-";
-  private final static String RIGHT_OPTION_DELIMITER = "";
+  private static final String LEFT_OPTION_DELIMITER = "-";
+  private static final String RIGHT_OPTION_DELIMITER = "";
 
   public OptionNode() {
     super();

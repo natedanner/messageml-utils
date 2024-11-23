@@ -1,11 +1,11 @@
 package org.symphonyoss.symphony.messageml.markdown.nodes.form;
 
 public class TimePickerNode extends FormElementNode implements PlaceholderLabelTooltipNode {
-  private final static String MARKDOWN = "Time Picker";
+  private static final String MARKDOWN = "Time Picker";
 
-  private String label;
-  private String tooltip;
-  private String placeholder;
+  private final String label;
+  private final String tooltip;
+  private final String placeholder;
 
 
   public TimePickerNode(String label, String tooltip, String placeholder) {

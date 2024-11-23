@@ -40,7 +40,7 @@ import javax.annotation.Nullable;
  * @author Bruce Skingle
  *
  */
-/* package */ class EntityJsonContext implements IEntityJsonSchemaContext
+/* package */ final class EntityJsonContext implements IEntityJsonSchemaContext
 {
   private Object     instanceSource_;
   private ObjectNode instanceJsonNode_;

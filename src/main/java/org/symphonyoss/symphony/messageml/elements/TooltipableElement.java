@@ -73,13 +73,10 @@ public interface TooltipableElement extends SplittableElement {
       return false;
     }
     NamedNodeMap attributes = item.getAttributes();
-    if(attributes.getNamedItem(DATA_TARGET_ID) == null
+    return !(attributes.getNamedItem(DATA_TARGET_ID) == null
         || attributes.getNamedItem(DATA_TITLE) == null
         || attributes.getNamedItem(Span.CLASS_ATTR) == null
-        || !TOOLTIP_CLASS.equals(attributes.getNamedItem(Span.CLASS_ATTR).getNodeValue())){
-      return false;
-    }
-    return true;
+        || !TOOLTIP_CLASS.equals(attributes.getNamedItem(Span.CLASS_ATTR).getNodeValue()));
   }
 
   /**

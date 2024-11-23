@@ -69,12 +69,12 @@ public class EntityJsonParser
     }
   }
 
-  private final JsonSchemaFactory factory_;
+  private final JsonSchemaFactory factory;
   
   /* package */ EntityJsonParser(boolean unrestrictedSchemaLoad)
   {
     if(unrestrictedSchemaLoad) {
-      factory_ = JsonSchemaFactory.byDefault();
+      factory = JsonSchemaFactory.byDefault();
     }
     else
     {
@@ -89,7 +89,7 @@ public class EntityJsonParser
       
       builder.setLoadingConfiguration(loadingCfg);
       
-      factory_ = builder.freeze();
+      factory = builder.freeze();
     }
   }
   
@@ -289,7 +289,7 @@ public class EntityJsonParser
   {  
     try
     {
-      ProcessingReport validationResult = factory_.getJsonSchema(context.getSchemaJsonNode())
+      ProcessingReport validationResult = factory.getJsonSchema(context.getSchemaJsonNode())
           .validate(context.getInstanceJsonNode(), true);
       
       context.withValidationResult(validationResult);

@@ -9,7 +9,7 @@ import java.io.Serializable;
  *
  * @author enrico.molino (23/11/2020)
  */
-public class XMLAttribute implements Serializable {
+public final class XMLAttribute implements Serializable {
   public final String value;
   public final Format format;
 

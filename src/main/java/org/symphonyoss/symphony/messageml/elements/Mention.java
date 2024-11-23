@@ -205,9 +205,9 @@ public class Mention extends Entity {
     }
 
     if (userPresentation != null) {
-      uid = (uid == null) ? userPresentation.getId() : uid;
-      email = (email == null) ? userPresentation.getEmail() : email;
-      prettyName = (prettyName == null) ? userPresentation.getPrettyName() : prettyName;
+      uid = uid == null ? userPresentation.getId() : uid;
+      email = email == null ? userPresentation.getEmail() : email;
+      prettyName = prettyName == null ? userPresentation.getPrettyName() : prettyName;
     }
   }
 
@@ -226,7 +226,7 @@ public class Mention extends Entity {
 
   @Override
   protected String getEntityValue() {
-    return (uid != null) ? String.valueOf(uid) : null;
+    return uid != null ? String.valueOf(uid) : null;
   }
 
   @Override

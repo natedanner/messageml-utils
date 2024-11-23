@@ -7,11 +7,11 @@ package org.symphonyoss.symphony.messageml.markdown.nodes.form;
  * @since 10/21/2019
  */
 public class PersonSelectorNode extends FormElementNode implements PlaceholderLabelTooltipNode {
-  private final static String MARKDOWN = "Person Selector";
+  private static final String MARKDOWN = "Person Selector";
 
-  private String placeholder;
-  private String label;
-  private String tooltip;
+  private final String placeholder;
+  private final String label;
+  private final String tooltip;
 
   public PersonSelectorNode(String placeholder, String label, String tooltip) {
     super(MARKDOWN, placeholder);

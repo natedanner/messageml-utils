@@ -9,8 +9,8 @@ import org.apache.commons.lang3.StringUtils;
  * @since 10/21/2019
  */
 public class RadioNode extends FormElementNode {
-  private final static String MARKDOWN = "Radio Button";
-  private final static String RADIO_DELIMITER = " ";
+  private static final String MARKDOWN = "Radio Button";
+  private static final String RADIO_DELIMITER = " ";
 
   private String label;
   

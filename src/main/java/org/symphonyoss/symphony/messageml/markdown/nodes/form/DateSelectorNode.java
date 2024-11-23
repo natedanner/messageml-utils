@@ -7,9 +7,9 @@ package org.symphonyoss.symphony.messageml.markdown.nodes.form;
  * @since 10/21/2019
  */
 public class DateSelectorNode extends FormElementNode {
-  private final static String MARKDOWN = "Date Selector";
+  private static final String MARKDOWN = "Date Selector";
 
-  private String placeholder;
+  private final String placeholder;
 
   public DateSelectorNode(String placeholder) {
     super(MARKDOWN, placeholder);
@@ -18,6 +18,6 @@ public class DateSelectorNode extends FormElementNode {
   
   @Override
   public String getText() {
-    return (placeholder != null) ? String.format(":[%s]", placeholder) : "";
+    return placeholder != null ? String.format(":[%s]", placeholder) : "";
   }
 }

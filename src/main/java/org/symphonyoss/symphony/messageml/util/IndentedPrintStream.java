@@ -26,12 +26,12 @@ import java.util.Collection;
  */
 public class IndentedPrintStream extends PrintStream {
   private boolean startOfLine = true;
-  private int indent = 0;
-  private AlignedBlock alignedBlock = null;
-  private boolean printOffsets = false;
-  private boolean oNlCr = false;
-  private boolean noIndent = false;
-  private boolean noNl = false;
+  private int indent;
+  private AlignedBlock alignedBlock;
+  private boolean printOffsets;
+  private boolean oNlCr;
+  private boolean noIndent;
+  private boolean noNl;
   private boolean removeNl = true;
   private String linePrefix;
   private int linePrefixIndent = 9999;
